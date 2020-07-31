@@ -1,0 +1,11 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "name": "Our Kind of Traitor",
+            "tagline": "British spy thriller film",
+            "image":"https://www.templatesfront.com/wp-content/uploads/2016/05/movie-poster-template-10.jpg",
+            "rating":5
+        }
+    ]
+}

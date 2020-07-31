@@ -1,15 +1,24 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 
-function Header() {
+
+
+const Header = (props) => {
+
+  function redirect(){
+    props.history.push({
+      pathname: '/',
+    })
+  }
+
   return (
-    <div className="App">
-     <nav class="navbar navbar-dark fixed-top bg-custom-2">
-  <div class="container">
-    <a class="navbar-brand" href="#a">JustWatch</a>
+     <nav className="navbar navbar-dark fixed-top bg-custom-2">
+  <div className="container">
+    <a className="navbar-brand" onClick={() => redirect()}>JustWatch</a>
   </div>
 </nav>
-    </div>
+
   );
 }
 
-export default Header;
+export default withRouter(Header);
