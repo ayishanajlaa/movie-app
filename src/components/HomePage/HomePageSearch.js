@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { SearchMovies } from "./modules/HomePageAction";
 
 
+
 const MovieSearch = (props) => {
 
   const [input, setInput] = useState('');
@@ -13,9 +14,10 @@ const MovieSearch = (props) => {
   };
 
   const search = () => {
-    console.log(input)
     props.SearchMovies(input)
   };
+
+
 
   return (
     <div class="search-sec">
@@ -30,13 +32,10 @@ const MovieSearch = (props) => {
                 <button type="button" class="btn btn-danger wrn-btn" onClick={search}>Search</button>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
 
