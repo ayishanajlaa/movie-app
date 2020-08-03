@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MovieCard from './HomePageCard'
 import Pagination from './Pagination'
@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import { GetMovies, SortMovies } from "./modules/HomePageAction";
 import './HomePage.css';
 
-
 const HomepageLayout = (props) => {
+ 
   useEffect(() => {
     props.GetMovies(1)
   }, [])
@@ -26,9 +26,9 @@ const HomepageLayout = (props) => {
 
 
   return (
-    <div class="container">
-      <div class="row justify-content-md-center my-3">
-        <div class="col col-lg-2">
+    <div className="container">
+      <div className="row justify-content-md-center my-3">
+        <div className="col col-lg-2">
       <UncontrolledDropdown>
       <DropdownToggle caret>
         Sort By
@@ -39,7 +39,7 @@ const HomepageLayout = (props) => {
       </DropdownMenu>
     </UncontrolledDropdown>
         </div>
-        <div class="col col-lg-2">
+        <div className="col col-lg-2">
         <UncontrolledDropdown>
       <DropdownToggle caret>
         Filter By
@@ -56,9 +56,6 @@ const HomepageLayout = (props) => {
 
   );
 }
-
-
-
 
 const mapStateToProps = state => ({
   movies: state.movieListreducer.movies.results,

@@ -7,6 +7,7 @@ export const MOVIE_DETAIL_SUCCESS = 'MOVIE_DETAIL_SUCCESS';
 export const MOVIE_DETAIL_ERROR = 'MOVIE_DETAIL_ERROR';
 
 
+//Get Movie Details
 export const getMovieDetails = (movieId) => dispatch => {
     dispatch({ type: MOVIE_DETAIL_VIEWING });
     const fullUrl = helpers.createMovieDbUrl(`/movie/${movieId}`, {

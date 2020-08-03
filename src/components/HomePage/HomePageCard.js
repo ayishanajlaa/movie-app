@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import {Row, Col} from 'react-bootstrap';
-
 const TMDB_IMAGE_BASE_URL = (width = 300) => `https://image.tmdb.org/t/p/w${width}`;
 
 const MovieCard = (props) => {
@@ -17,19 +15,17 @@ const MovieCard = (props) => {
     <div className="row ">
     {props.movies.map((item) =>
       <div className="col-12 col-sm-8 col-md-6 col-lg-4 d-flex align-items-stretch my-2" key={item.id}>
-                 <div class="card bg-light">
-            <img class="card-img-top" src={TMDB_IMAGE_BASE_URL('300')+item.poster_path} alt="Card image cap"/>
-            <div class="card-body">
-               <h5 class="card-title border-bottom">{item.title} </h5>
-               <p class="price">Vote Count: <span>{item.vote_count}</span></p>
-               <p class="price">Popularity: <span>{item.popularity}</span></p>
-               <a  class="btn btn-sm btn-info " onClick={() => viewMore(item)}>View more <i class="fas fa-angle-double-right"></i></a>
+                 <div className="card bg-light">
+            <img className="card-img-top" src={TMDB_IMAGE_BASE_URL('300')+item.poster_path} alt="Card  cap"/>
+            <div className="card-body">
+               <h5 className="card-title border-bottom">{item.title} </h5>
+               <p className="price">Vote Count: <span>{item.vote_count}</span></p>
+               <p className="price">Popularity: <span>{item.popularity}</span></p>
+               <a  className="btn btn-sm btn-info " onClick={() => viewMore(item)}>View more <i className="fas fa-angle-double-right"></i></a>
             </div>
          </div>
-   
       </div>
     )}
-  
     </div>
     </div>
   

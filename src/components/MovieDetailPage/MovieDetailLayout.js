@@ -5,17 +5,21 @@ import StarRatings from 'react-star-ratings';
 import './MovieDetail.css'
 const TMDB_IMAGE_BASE_URL = (width = 300) => `https://image.tmdb.org/t/p/w${width}`;
 
-
-
 class MovieDetailLayout extends React.Component {
+
   componentDidMount() {
-    this.props.getMovieDetails(this.props.location.id);
+    if (this.props.location.id) {
+      this.props.getMovieDetails(this.props.location.id);
+    }
+    else {
+      this.props.history.push({
+        pathname: '/',
+      })
+    }
   }
 
   render() {
-    // console.log(this.props.detail)
     const detail = this.props.detail
-
     if (this.props.loading) {
       return <div>Loading</div>
     }
@@ -24,20 +28,20 @@ class MovieDetailLayout extends React.Component {
     }
 
     return (
-      <div class="container moviedetail">
-        <div class="card">
-          <div class="container-fliud">
-            <div class="wrapper row">
-              <div class="preview col-md-6">
+      <div className="container moviedetail">
+        <div className="card">
+          <div className="container-fliud">
+            <div className="wrapper row">
+              <div className="preview col-md-6">
 
-                <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1"><img src={TMDB_IMAGE_BASE_URL('300') + detail.poster_path} /></div>
+                <div className="preview-pic tab-content">
+                  <div className="tab-pane active" id="pic-1"><img src={TMDB_IMAGE_BASE_URL('300') + detail.poster_path} href="alt" /></div>
                 </div>
               </div>
-              <div class="details col-md-6">
-                <h3 class="product-title">{detail.title}</h3>
-                <h6 class="product-title">{detail.tagline}</h6>
-                <div class="rating">
+              <div className="details col-md-6">
+                <h3 className="product-title">{detail.title}</h3>
+                <h6 className="product-title">{detail.tagline}</h6>
+                <div className="rating">
                   {detail.vote_average ?
                     <StarRatings
                       rating={parseInt(detail.vote_average)}
@@ -49,19 +53,19 @@ class MovieDetailLayout extends React.Component {
                     /> : null}
 
                 </div>
-                <p class="product-description">{detail.overview}</p>
-                <h6 class="price">Popularity: <span>{detail.popularity}</span></h6>
-                <h6 class="price">Vote Count: <span>{detail.vote_count}</span></h6>
-                <h6 class="price">Release: <span>{detail.release_date}</span></h6>
+                <p className="product-description">{detail.overview}</p>
+                <h6 className="price">Popularity: <span>{detail.popularity}</span></h6>
+                <h6 className="price">Vote Count: <span>{detail.vote_count}</span></h6>
+                <h6 className="price">Release: <span>{detail.release_date}</span></h6>
 
-                <h6 class="price">Genres:</h6>
-                <div class="row">
+                <h6 className="price">Genres:</h6>
+                <div className="row">
                   {detail.genres ?
-                    detail.genres.map((item) => <div class="col-6">{item.name}</div>) : null}
+                    detail.genres.map((item) => <div key={item.id} className="col-6">{item.name}</div>) : null}
                 </div>
-                <div class="action">
-                  <button class="add-to-cart btn btn-default" type="button">Book Ticket</button>
-                  <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                <div className="action">
+                  <button className="add-to-cart btn btn-default" type="button">Book Ticket</button>
+                  <button className="like btn btn-default" type="button"><span className="fa fa-heart"></span></button>
                 </div>
               </div>
             </div>

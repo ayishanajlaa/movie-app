@@ -27,17 +27,17 @@ class HomepagePagination extends Component {
 
   render() {
     return (
-      <div class="row justify-content-md-center my-3">
-        <div class="col col-lg-2">
-      <Pagination >
-        <PaginationItem>
-          <PaginationLink onClick={this.previousPage} >previous</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink onClick={this.nextPage} >Next</PaginationLink>
-        </PaginationItem>
-      </Pagination>
-      </div>
+      <div className="row justify-content-md-center my-3">
+        <div className="col col-lg-2">
+          <Pagination >
+            <PaginationItem>
+              <PaginationLink onClick={this.previousPage} >previous</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={this.nextPage} >Next</PaginationLink>
+            </PaginationItem>
+          </Pagination>
+        </div>
       </div>
 
     );
