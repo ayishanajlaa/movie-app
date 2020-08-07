@@ -35,7 +35,7 @@ class MovieDetailLayout extends React.Component {
               <div className="preview col-md-6">
 
                 <div className="preview-pic tab-content">
-                  <div className="tab-pane active" id="pic-1"><img src={TMDB_IMAGE_BASE_URL('300') + detail.poster_path} href="alt" /></div>
+                  <div className="tab-pane active" id="pic-1"><img src={TMDB_IMAGE_BASE_URL('300') + detail.poster_path}  alt="description" /></div>
                 </div>
               </div>
               <div className="details col-md-6">

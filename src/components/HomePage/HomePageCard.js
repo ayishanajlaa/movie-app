@@ -1,15 +1,9 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter,Link } from "react-router-dom";
 const TMDB_IMAGE_BASE_URL = (width = 300) => `https://image.tmdb.org/t/p/w${width}`;
 
 const MovieCard = (props) => {
 
-  function viewMore(event) {
-    props.history.push({
-      pathname: '/MovieDetail',
-      id: event.id 
-    })
-}
   return (
     <div className="container moviecard ">
     <div className="row ">
@@ -21,7 +15,7 @@ const MovieCard = (props) => {
                <h5 className="card-title border-bottom">{item.title} </h5>
                <p className="price">Vote Count: <span>{item.vote_count}</span></p>
                <p className="price">Popularity: <span>{item.popularity}</span></p>
-               <a  className="btn btn-sm btn-info " onClick={() => viewMore(item)}>View more <i className="fas fa-angle-double-right"></i></a>
+               <Link className="btn btn-sm btn-info "  to={{ pathname: '/MovieDetail', id: item.id }}>View more <i className="fas fa-angle-double-right"></i></Link>
             </div>
          </div>
       </div>

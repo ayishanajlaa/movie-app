@@ -1,6 +1,7 @@
 import React, {useEffect } from 'react'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MovieCard from './HomePageCard'
+import MovieSearch from './HomePageSearch'
 import Pagination from './Pagination'
 import { connect } from 'react-redux';
 import { GetMovies, SortMovies } from "./modules/HomePageAction";
@@ -26,6 +27,8 @@ const HomepageLayout = (props) => {
 
 
   return (
+    <>
+    <MovieSearch/>
     <div className="container">
       <div className="row justify-content-md-center my-3">
         <div className="col col-lg-2">
@@ -45,7 +48,7 @@ const HomepageLayout = (props) => {
         Filter By
       </DropdownToggle>
       <DropdownMenu>
-        {/* <DropdownItem  onClick={sort}>Vote Count</DropdownItem> */}
+        <DropdownItem  disabled>Vote Count</DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>
         </div>
@@ -53,6 +56,7 @@ const HomepageLayout = (props) => {
       <MovieCard movies={props.movies} />
       <Pagination />
     </div>
+    </>
 
   );
 }
